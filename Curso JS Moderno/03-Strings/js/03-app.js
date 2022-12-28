@@ -1,13 +1,15 @@
-//Concatenar los string 
-const producto = 'Monitor de 20 pulgadas';
-const precio = '30 USD';
+//Concatenando cadenas
+//Aviso importante, cuando se importan mas de 1 hoha de js al html
+//No se pueden nombrar las mismas variables porque es como declarar la misma variable 2 veces y marca error
+const productoo = 'Monitor de 20 pulgadas';
+const precioo = '30 USD';
 
-console.log(producto.concat(precio));
-console.log(producto.concat('En descuento'));
+console.log(productoo.concat(precioo));
+console.log(productoo.concat('En descuento'));
 
-console.log(producto + "Con un precio de:" + precio);
+console.log(productoo + "Con un precioo de:" + precioo);
 
-console.log("El producto " + producto + "Tiene un precio de " + precio);
-console.log("El producto ", producto, "Tiene un precio de ", precio);
+console.log("El productoo " + productoo + "Tiene un precioo de " + precioo);
+console.log("El productoo ", productoo, "Tiene un precioo de ", precioo);
 
-console.log(`El producto ${producto} tiene un precio de ${precio}`);
+console.log(`El productoo ${productoo} tiene un precioo de ${precioo}`);
