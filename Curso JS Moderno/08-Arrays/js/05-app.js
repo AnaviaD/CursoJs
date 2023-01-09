@@ -1,3 +1,4 @@
+/*
 const carrito0005 = [];
 
 // Definir un producto
@@ -22,3 +23,5 @@ const producto03 = {
 // Para agregar un elemento al inicio del arreglo
 carrito0005.unshift(producto03);
 console.log(carrito0005);
+
+*/
