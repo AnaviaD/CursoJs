@@ -8,3 +8,23 @@ const carrito = [
     { nombre: 'Teclado', precio: 400 },
     { nombre: 'Celular', precio: 700 },
 ]
+
+// Comprobar si existe el valor
+meses.forEach((mes) =>{
+    if (mes === 'Enero') {
+        console.log(`Enero si existe`)
+    }
+});
+
+// Include solo funciona con arreglo de un solo indice
+const resultado = meses.includes('Enero');
+console.log(resultado)
+
+const existe = carrito.some((prod) => {
+    return prod.nombre == 'Celular'
+})
+
+console.log(existe)
+
+const existe2 = meses.some(m =>  m === 'Febrero')
+console.log(existe2)
