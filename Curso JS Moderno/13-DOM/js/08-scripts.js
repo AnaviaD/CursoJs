@@ -13,3 +13,7 @@
 // card.children[1].children[1].textContent = 'Nuevo heading desde codigo'
 
 // console.log(card.children[1].children[1].textContent)
+
+// console.log(card.nextElementSibling)
+
+// console.log(card.nextElementSibling.nextElementSibling)
