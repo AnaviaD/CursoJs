@@ -10,9 +10,11 @@ function mostrarOcultarFooter(){
     {
         footer.classList.remove('activo')
         btnFlotante.classList.remove('Activo')
+        this.textContent = 'Idioma y moneda'
     }else{
         footer.classList.add('activo')
         btnFlotante.classList.add('Activo')
+        this.textContent = 'X Cerrar'
     }
     console.log(footer.classList)
 }
