@@ -81,6 +81,13 @@ function limpiarHTML(){
     contenedorCarrito.innerHTML = '';
 }
 
-function eliminaCurso(){   
-    console.log('Se va a eliminar curso')
+function eliminaCurso(e){   
+    if (e.target.classList.contains('borrar-curso')) {
+        console.log(e.target.getAttribute('data-id'))
+        const cursoId = e.target.getAttribute('data-id')
+
+        // Elimina de el arreglo de articulosCarrito por el data-id
+        articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId)
+        carritoHTML()
+    }
 }
