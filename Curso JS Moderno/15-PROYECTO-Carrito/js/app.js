@@ -30,10 +30,24 @@ function leerDatosCurso(curso){
         id:         curso.querySelector('a').getAttribute('data-id'),
         cantidad:   1
     }
-    console.log(infoCurso)
+
+    // Revisa si un elemento ya exist een el carrito
+    const existe = articulosCarrito.some(curso => curso.id === infoCurso.id)
+    console.log(existe)
+    if(existe){
+        const cursos = articulosCarrito.map(curso => {
+            if (curso => curso.id === infoCurso.id) {
+                curso.cantidad++;
+                return curso //Este retorna el objeto actualizado
+            }else{
+                return curso //retorna los objetos que no estan repetidos
+            }
+        })
+    }else{
+        articulosCarrito = [... articulosCarrito, infoCurso]
+    }
 
     // Agrega elementos del carrito
-    articulosCarrito = [... articulosCarrito, infoCurso]
     console.log(articulosCarrito)
     carritoHTML()
 }
