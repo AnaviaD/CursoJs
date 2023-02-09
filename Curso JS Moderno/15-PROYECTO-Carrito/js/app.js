@@ -10,6 +10,9 @@ cargaEventListeners()
 function cargaEventListeners(){
     // Cuando agregas un curso presionando "Agregar al carrito"
     listaCursos.addEventListener('click', agregarCurso);
+
+    // Elimina cursos del carrito
+    carrito.addEventListener('click', eliminaCurso)
 }
 
 function agregarCurso(e){
@@ -76,4 +79,8 @@ function carritoHTML(){
 
 function limpiarHTML(){
     contenedorCarrito.innerHTML = '';
+}
+
+function eliminaCurso(){   
+    console.log('Se va a eliminar curso')
 }
