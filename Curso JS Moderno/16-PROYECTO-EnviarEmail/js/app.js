@@ -12,4 +12,16 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log(e.target);
         console.log(e.target.value);
     })
+    inputAsunto.addEventListener('blur', function(e){
+        console.log('Salir del input');
+        console.log(e);
+        console.log(e.target);
+        console.log(e.target.value);
+    })
+    inputMensaje.addEventListener('blur', function(e){
+        console.log('Salir del input');
+        console.log(e);
+        console.log(e.target);
+        console.log(e.target.value);
+    })
 })
