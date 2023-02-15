@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 function validar(e){
+    console.log(e.target.parentElement)
     if (e.target.value.trim() === '') {
-        console.log('Esta vacio')
-        mostrarAlerta();
+        mostrarAlerta(`Campo ${e.target.id} Esta vacio`, e.target.parentElement)
     }else{
         console.log('Si hay algo')
     }
@@ -23,9 +23,9 @@ function validar(e){
     console.log(e.target.value);
 }
 
-function mostrarAlerta(){
+function mostrarAlerta(mensaje, referencia){
     const errorAlarm = document.createElement('P')
-    errorAlarm.textContent = 'Hubo un error...';
+    errorAlarm.textContent = mensaje;
     errorAlarm.classList.add('bg-red-600', 'text-white', 'p-2')
-    formulario.appendChild(errorAlarm)
+    referencia.appendChild(errorAlarm)
 }
