@@ -18,6 +18,12 @@ function validar(e){
         mostrarAlerta(`Campo ${e.target.id} Esta vacio`, e.target.parentElement)
         return;
     }
+    if (e.target.id === 'email' && !validarEmail(e.target.value)) {
+        // El return es importante porque si no, va a limpiar la alarma sea como sea
+        mostrarAlerta(`El email no es valido`, e.target.parentElement)
+        return;
+    }
+    
     limpiarAlerta(e.target.parentElement)
 }
 
@@ -36,4 +42,11 @@ function limpiarAlerta(referencia)
     if(alerta){
         alerta.remove();
     }
+}
+
+function validarEmail(email){
+    const regex =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ 
+    const resultado = regex.test(email);
+    console.log(resultado);
+    return resultado
 }
