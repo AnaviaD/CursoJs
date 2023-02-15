@@ -16,21 +16,24 @@ function validar(e){
     console.log(e.target.parentElement)
     if (e.target.value.trim() === '') {
         mostrarAlerta(`Campo ${e.target.id} Esta vacio`, e.target.parentElement)
-    }else{
-        console.log('Si hay algo')
+        return;
     }
-    console.log('desde la funcion de validar');
-    console.log(e.target.value);
+    limpiarAlerta(e.target.parentElement)
 }
 
 function mostrarAlerta(mensaje, referencia){
-    const alerta = referencia.querySelector('.bg-red-600')
-    if(alerta){
-        alerta.remove();
-    }
+    limpiarAlerta(referencia)
     
     const errorAlarm = document.createElement('P')
     errorAlarm.textContent = mensaje;
     errorAlarm.classList.add('bg-red-600', 'text-white', 'p-2')
     referencia.appendChild(errorAlarm)
+}
+
+function limpiarAlerta(referencia)
+{
+    const alerta = referencia.querySelector('.bg-red-600')
+    if(alerta){
+        alerta.remove();
+    }
 }
