@@ -24,6 +24,11 @@ function validar(e){
 }
 
 function mostrarAlerta(mensaje, referencia){
+    const alerta = referencia.querySelector('.bg-red-600')
+    if(alerta){
+        alerta.remove();
+    }
+    
     const errorAlarm = document.createElement('P')
     errorAlarm.textContent = mensaje;
     errorAlarm.classList.add('bg-red-600', 'text-white', 'p-2')
