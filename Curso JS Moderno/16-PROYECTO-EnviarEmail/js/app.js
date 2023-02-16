@@ -13,12 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
     btnReset.addEventListener('click', function(e){
         e.preventDefault();
 
-        emailConst.email = '';
-        emailConst.asunto = '';
-        emailConst.mensaje = '';
-
-        formulario.reset();
-        comprobarEmail()
+        reiniciarFormulario()
     });
 
     formulario.addEventListener('submit', enviarEmail)
@@ -41,6 +36,12 @@ function enviarEmail(e)
     spinner.classList.add('flex')
     spinner.classList.remove('hidden')
     console.log('enviando..')
+
+    setTimeout(() => {
+        spinner.classList.add('hidden')
+        spinner.classList.remove('flex')
+    }, 2000)
+    reiniciarFormulario()
 }
 
 function validar(e){
@@ -97,4 +98,14 @@ function comprobarEmail(){
         btnSubmit.classList.remove('opacity-50')
         btnSubmit.disabled = false;
     }
+}
+
+function reiniciarFormulario()
+{
+    emailConst.email = '';
+    emailConst.asunto = '';
+    emailConst.mensaje = '';
+
+    formulario.reset();
+    comprobarEmail()
 }
