@@ -6,13 +6,18 @@ document.addEventListener('DOMContentLoaded', function(){
     const inputMensaje = document.querySelector('#mensaje')
    
     // Asignar eventos
-    inputEmail.addEventListener('blur', validar)
-    inputAsunto.addEventListener('blur', validar)
-    inputMensaje.addEventListener('blur', validar)
+    inputEmail.addEventListener('input', validar)
+    inputAsunto.addEventListener('input', validar)
+    inputMensaje.addEventListener('input', validar)
+
+    btnReset.addEventListener('click', function(e){
+        e.preventDefault();
+    });
 });
 
 const formulario = document.querySelector('#formulario')
 const btnSubmit = document.querySelector('#formulario button[type="submit"]')
+const btnReset = document.querySelector('#formulario button[type="reset"]')
 
 const emailConst = {
     email: '',
@@ -24,11 +29,13 @@ function validar(e){
     console.log(e.target.parentElement)
     if (e.target.value.trim() === '') {
         mostrarAlerta(`Campo ${e.target.id} Esta vacio`, e.target.parentElement)
+        emailConst[e.target.name] = ''
         return;
     }
     if (e.target.id === 'email' && !validarEmail(e.target.value)) {
         // El return es importante porque si no, va a limpiar la alarma sea como sea
         mostrarAlerta(`El email no es valido`, e.target.parentElement)
+        emailConst[e.target.name] = ''
         return;
     }
     
@@ -64,8 +71,10 @@ function validarEmail(email){
 }
 
 function comprobarEmail(){
+    console.log(emailConst)
     if (Object.values(email).includes('')) {
-        
+        btnSubmit.classList.add('opacity-50')
+        btnSubmit.disabled = true;
     }else{
         btnSubmit.classList.remove('opacity-50')
         btnSubmit.disabled = false;
