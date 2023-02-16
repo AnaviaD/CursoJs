@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
 
+    
+
     // Seleccionar los elementos de la interfaz
     const inputEmail = document.querySelector('#email')
     const inputAsunto = document.querySelector('#asunto')
@@ -11,6 +13,12 @@ document.addEventListener('DOMContentLoaded', function(){
     inputAsunto.addEventListener('blur', validar)
     inputMensaje.addEventListener('blur', validar)
 });
+
+const emailConst = {
+    email: '',
+    asunto: '',
+    mensaje: ''
+}
 
 function validar(e){
     console.log(e.target.parentElement)
@@ -25,6 +33,9 @@ function validar(e){
     }
     
     limpiarAlerta(e.target.parentElement)
+
+    emailConst[e.target.name] = e.target.value.trim().toLowerCase();
+    console.log(emailConst);
 }
 
 function mostrarAlerta(mensaje, referencia){
