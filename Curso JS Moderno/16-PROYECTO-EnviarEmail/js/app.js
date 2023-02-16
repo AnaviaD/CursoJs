@@ -20,16 +20,27 @@ document.addEventListener('DOMContentLoaded', function(){
         formulario.reset();
         comprobarEmail()
     });
+
+    formulario.addEventListener('submit', enviarEmail)
 });
 
 const formulario = document.querySelector('#formulario')
 const btnSubmit = document.querySelector('#formulario button[type="submit"]')
 const btnReset = document.querySelector('#formulario button[type="reset"]')
+const spinner = document.querySelector('#spinner')
 
 const emailConst = {
     email: '',
     asunto: '',
     mensaje: ''
+}
+
+function enviarEmail(e)
+{
+    e.preventDefault();
+    spinner.classList.add('flex')
+    spinner.classList.remove('hidden')
+    console.log('enviando..')
 }
 
 function validar(e){
