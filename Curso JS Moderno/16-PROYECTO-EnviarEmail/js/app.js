@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
     btnReset.addEventListener('click', function(e){
         e.preventDefault();
+
+        emailConst.email = '';
+        emailConst.asunto = '';
+        emailConst.mensaje = '';
+
+        formulario.reset();
+        comprobarEmail()
     });
 });
 
