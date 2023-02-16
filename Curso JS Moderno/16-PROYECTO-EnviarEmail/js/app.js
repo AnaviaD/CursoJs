@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-    
-
     // Seleccionar los elementos de la interfaz
     const inputEmail = document.querySelector('#email')
     const inputAsunto = document.querySelector('#asunto')
     const inputMensaje = document.querySelector('#mensaje')
-    const formulario = document.querySelector('#formulario')
-
+   
     // Asignar eventos
     inputEmail.addEventListener('blur', validar)
     inputAsunto.addEventListener('blur', validar)
     inputMensaje.addEventListener('blur', validar)
 });
+
+const formulario = document.querySelector('#formulario')
+const btnSubmit = document.querySelector('#formulario button[type="submit"]')
 
 const emailConst = {
     email: '',
@@ -35,7 +35,8 @@ function validar(e){
     limpiarAlerta(e.target.parentElement)
 
     emailConst[e.target.name] = e.target.value.trim().toLowerCase();
-    console.log(emailConst);
+    
+    comprobarEmail()
 }
 
 function mostrarAlerta(mensaje, referencia){
@@ -60,4 +61,13 @@ function validarEmail(email){
     const resultado = regex.test(email);
     console.log(resultado);
     return resultado
+}
+
+function comprobarEmail(){
+    if (Object.values(email).includes('')) {
+        
+    }else{
+        btnSubmit.classList.remove('opacity-50')
+        btnSubmit.disabled = false;
+    }
 }
