@@ -40,6 +40,16 @@ function enviarEmail(e)
     setTimeout(() => {
         spinner.classList.add('hidden')
         spinner.classList.remove('flex')
+
+        const alertaExito = document.createElement('P');
+
+        alertaExito.classList.add('bg-green-500', 'text-white', 'P-2', 'text-center', 'rounded-lg', 'mt-10', 'font-bold', 'text-sm', 'uppercase');
+        alertaExito.textContent = "Mensaje enviado correctmente";
+
+        formulario.appendChild(alertaExito)
+        setTimeout(() => {
+            alertaExito.remove();
+        }, 2000)
     }, 2000)
     reiniciarFormulario()
 }
