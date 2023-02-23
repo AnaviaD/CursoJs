@@ -103,8 +103,23 @@ function llenarSelect(){
 function filtraAuto(){
     const resultado = autos.filter(filtraMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtrarColor)
 
-    mostrarAutos(resultado)
     console.log(resultado)
+    
+    if (resultado.length) {
+        mostrarAutos(resultado)
+    }else{
+        noResultado()
+    }
+}
+
+function noResultado(){
+
+    limpiarHTML()
+
+    const noResultadoDoc = document.createElement('div')
+    noResultadoDoc.classList.add('alerta', 'error')
+    noResultadoDoc.textContent = 'No hay resultados'
+    resultado.appendChild(noResultadoDoc)
 }
 
 function filtraMarca(auto){
