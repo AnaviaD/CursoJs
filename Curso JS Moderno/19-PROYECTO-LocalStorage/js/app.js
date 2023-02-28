@@ -8,7 +8,17 @@ let tweets = [];
 evenListeners();
 
 function evenListeners(){
+    // Cuando el usuario agrega un tweet
     formulario.addEventListener('submit', agregarTweet);
+
+    // Cuando el documento esta listo
+    document.addEventListener('DOMContentLoaded', () => {
+        tweets = JSON.parse( localStorage.getItem('tweets') ) || [];
+
+        console.log(tweets);
+
+        crearHTML();
+    })
 }
 
 //Funciones
@@ -72,6 +82,14 @@ function crearHTML(){
 
         });
     }
+
+    sincronizarStorages();
+}
+
+
+//Agrega los tweets actuales a local storage 
+function sincronizarStorages() {
+    localStorage.setItem('tweets', JSON.stringify(tweets));
 }
 
 
