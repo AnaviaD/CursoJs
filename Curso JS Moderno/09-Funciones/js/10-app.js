@@ -1,18 +1,13 @@
-// // Los arrowfunction tambien como return todo lo que se ejecute dentro de el
-// const aprendiendo0010 = function(){
-//     console.log('aprendiendo Javascript');
-// }
+const aprendiendo = function(){
+    console.log(`Aprendiendo JavaScript`);
+}
 
-// const aprendiendo00102 = () => {
-//     console.log('aprendiendo Javascript X2');
-// }
+const aprendiendo02 = () => {
+    console.log(`Aprendiendo JavaScript`)   
+}
 
-// const aprendiendo00103 = () => console.log('aprendiendo Javascript X3');
+const aprendiendo03 = () => console.log(`Aprendiendo JavaScript`)   
 
-// // Por lo que podemos hacer esto del console log
-
-// console.log(aprendiendo00103())
-
-// aprendiendo00103()
-// aprendiendo00102()
-// aprendiendo0010()
+aprendiendo()
+aprendiendo02()
+aprendiendo03()
