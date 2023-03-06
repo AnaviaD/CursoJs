@@ -7,16 +7,10 @@
 //     {nombre: 'Celular', precio: 700},
 // ]
 
+// for(let i=0; i < carrito.length; i++){
+//     console.log(`${carrito[i].nombre} - Precio: ${carrito[i].precio}`);
+// }
 
-// const nuevoArreglo = carrito.forEach(function(produc){
+// carrito.forEach(function(produc){
 //     console.log(`${produc.nombre} - Precio: ${produc.precio}`);
 // })
-
-// const nuevoArreglo02 = carrito.map(function(produc){
-//     console.log(`${produc.nombre} - Precio: ${produc.precio}`);
-// })
-
-// console.log(nuevoArreglo)
-// console.log(nuevoArreglo02)
-
-// //Map crea un nuevo arreglo con los elementos de map
