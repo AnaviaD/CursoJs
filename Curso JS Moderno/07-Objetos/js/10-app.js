@@ -1,26 +1,20 @@
 // const producto = {
-//     nombre: "Monitor 20 pulgadas",
+//     nombre: "Monitor 20 Pulgadas",
 //     precio: 300,
-//     disponible: false,
-//     informacion: {
-//         peso: '1 kg',
-//         medida: '1 metro',
-//         fafricacion: {
-//             pais: 'china'
-//         }
-//     }
+//     disponible: true
 // }
 
 // const medidas = {
 //     peso: '1kg',
-//     medidaa: '1m'
+//     medida: '1m'
 // }
 
 // console.log(producto)
 // console.log(medidas)
 
 // const resultado = Object.assign(producto, medidas)
-// const resultado2 = {...producto, ...medidas}
+
+// const resultado02 = {...producto, ...medidas}
 
 // console.log(resultado)
-// console.log(resultado2)
+// console.log(resultado02)

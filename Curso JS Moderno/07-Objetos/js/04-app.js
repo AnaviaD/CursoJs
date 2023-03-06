@@ -1,14 +1,10 @@
 // const producto = {
-//     nombre: "Monitor 20 pulgadas",
+//     nombre: "Monitor 20 Pulgadas",
 //     precio: 300,
-//     disponible: false
+//     disponible: true
 // }
-
-// // const nombre = producto.nombre;
-
 // console.log(producto)
-// // console.log(nombre)
 
+// const {nombre} = producto
 
-// const { nombre, inten, precio } = producto;
-// console.log(inten, nombre, precio)
+// console.log(nombre)
