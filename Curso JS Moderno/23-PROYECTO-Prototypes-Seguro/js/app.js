@@ -25,6 +25,30 @@ UI.prototype.llenarOpciones = () =>{
     }
 }
 
+//Muestra alertas en pantalla 
+UI.prototype.mostrarMensajes = (mensaje, tipo) =>{
+    const div = document.createElement('div');
+
+    if (tipo == 'error') {
+        div.classList.add('error');
+    }else{
+        div.classList.add('correcto');
+    }
+
+    div.classList.add('mensaje', 'mt-10');
+    div.textContent = mensaje;
+
+    //Insertar en html
+    const formulario = document.querySelector('#cotizar-seguro');
+    // (nodo que se desea insertar, nodo de referencia)
+    formulario.insertBefore(div, document.querySelector('#resultado'));
+
+    setTimeout(() => {
+        div.remove()
+    }, 3000)
+}
+
+
 //instanciar UI
 const ui = new UI();
 console.log(ui);
@@ -53,9 +77,13 @@ function cotizarSeguro(e){
     const tipo = document.querySelector('input[name="tipo"]:checked').value;
     
     if (marca == '' || tipo == '' || year == '') {        
-        console.log('No paso la validacion')
-    }else {
-        console.log('Si paso la validacion')
+        ui.mostrarMensajes('Todos los campos son obligatorios', 'error')
+        return
     }
+    ui.mostrarMensajes('Cotizando..', 'exito')
+
+    //Instanciar el seguro
+
+    //Utilizar el prototype que va a cotizar 
 
 }
