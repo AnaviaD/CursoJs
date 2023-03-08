@@ -84,6 +84,5 @@ function cotizarSeguro(e){
 
     //Instanciar el seguro
 
-    //Utilizar el prototype que va a cotizar 
 
 }
