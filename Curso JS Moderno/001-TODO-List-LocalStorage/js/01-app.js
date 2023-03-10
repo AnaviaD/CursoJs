@@ -7,6 +7,7 @@ const H2LoginTitle001 = document.createElement("H2")
 
 //Modificando los elementos creados
 H2LoginTitle001.innerHTML = "LOGIN"
+contenedorPrincipal.classList.add("center")
 card001.classList.add("card")
 cardTitle001.classList.add("card-title")
 
