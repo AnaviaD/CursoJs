@@ -6,6 +6,7 @@ const cardTitle001 = document.createElement("card-title")
 const H2LoginTitle001 = document.createElement("H2")
 const H2LoginTitle02 = document.createElement("H2")
 const H2LoginTitle03 = document.createElement("H2")
+const H2LoginTitle04 = document.createElement("H2")
 
 //Modificando los elementos creados
 H2LoginTitle001.innerHTML = "LOGIN"
