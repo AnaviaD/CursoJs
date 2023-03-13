@@ -20,7 +20,16 @@ class Presupuesto{
 }
 
 class UI{
+    insertarPresupuesto(cantidad){
+        //Obteniendo valores del objeto
+        const {presupuesto, restante} = cantidad
+
+        //Agregando valores al HTML
+        document.querySelector('#total').textContent = presupuesto
+        document.querySelector('#restante').textContent = restante
+    }
 }
+//Instancia de UI
 const ui = new UI();
 
 //Funciones
@@ -36,4 +45,6 @@ function preguntarPresupuesto(){
     //Presupuesto valido
     presupuesto = new Presupuesto(presupuestoUsuario)
     console.log(presupuesto)
+
+    ui.insertarPresupuesto(presupuesto)
 }
