@@ -20,4 +20,18 @@ carrito.push(producto)
 carrito.push(producto01)
 carrito.unshift(producto02)
 
-console.log(carrito)
+console.table(carrito)
+
+//Eliminar ultimo elemento de un arreglo
+// carrito.pop();
+console.table(carrito)
+
+//Elimina el primer elemento del arreglo
+// carrito.shift();
+console.table(carrito);
+
+//A splice se le dan 2 argumentos, 
+//el primer numero nos dice desde donde comienza a corrtar el arreglo
+//El segundo numero significa cuantas posiciones va a tomar
+carrito.splice(1,1)
+console.table(carrito)
