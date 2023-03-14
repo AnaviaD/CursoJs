@@ -22,7 +22,14 @@ class Presupuesto{
 
     nuevoGasto(gasto){
         this.gastos = [...this.gastos, gasto]
-        console.log(this.gastos)
+        this.calcularRestante()
+    }
+
+    calcularRestante(){
+        const gastado = this.gastos.reduce((total, gasto) => total + gasto.cantidad, 0 )
+        this.restante = this.presupuesto - gastado
+
+        console.log(this.restante)
     }
 }
 
@@ -73,8 +80,6 @@ class UI{
             nuevoGasto.className = 'list-group-item d-flex justify-content-between align-items-center';
             nuevoGasto.dataset.id = id;
 
-            console.log(nuevoGasto)
-
             //Agregar el HTML del gasto
             nuevoGasto.innerHTML = `${nombre} <span class ="badge badge-primary badge-pill">$ ${cantidad}</span>`;
 
@@ -87,6 +92,10 @@ class UI{
             //Agregar HTML
             gastoListado.appendChild(nuevoGasto)
         });
+    }
+
+    actualizarRestante(restante){
+        document.querySelector('#restante').textContent = restante
     }
 
     limpiarHTML(){
@@ -144,10 +153,11 @@ function agregarGasto(e){
     ui.imprimirAlerta('Gasto agregado Correctamente')
 
     //Destructure para obtener gastos
-    const {gastos} = presupuesto;
-
+    const {gastos, restante} = presupuesto;
     //Imprimir los gastos
     ui.agregarGastoListado(gastos)
+
+    ui.actualizarRestante(restante)
 
     //Reinicia el formulario
     formulario.reset();
