@@ -9,24 +9,32 @@ const carrito = [
     {nombre: 'Celular', precio: 800},
 ]
 
+const mesComp = 'Mayo'
+const prodComp = 'Tablet'
+
+//Comprobar si un valor existe en un arreglo
 // meses.forEach((mes) =>{
-//     console.log(mes)
+//     if (mes == 'Enero') {
+//         console.log('Enero existe')
+//     }
+// });
+
+//Includes solo funciona con arrays con un solo indice
+// if (meses.includes('Febrero')) {
+//    console.log('Febrero existe') 
+// }
+
+// const resultado = meses.includes('Enero');
+// console.log(resultado)
+
+// if(meses.includes(mesComp)){
+//     console.log('Si existe ese mes')
+// }
+
+// const existe = carrito.some((prod) =>{
+//     if (prod.precio == 300) {
+//         console.log(prod.nombre)
+//     }
 // })
 
-// meses.forEach((mes) =>{
-//     if(mes == 'Enero')
-//         console.log('Si existe juas juas')
-// })
-
-// const resultadoArrayMeth = meses.includes('Enero')
-// console.log(resultadoArrayMeth)
-
-//En un arreglo de objetos se utiliza .some
-const existe = carrito.some( prod =>{
-    return prod.nombre == 'Celular'
-})
-
-console.log(existe)
-
-const existe02 = meses.some( mes => mes == 'Marzo')
-console.log(existe02)
+// console.log(existe)

@@ -76,7 +76,7 @@ class UI{
             console.log(nuevoGasto)
 
             //Agregar el HTML del gasto
-            nuevoGasto.innerHTML = `${nombre} <span class ="badge badge-primary badge-pill"> ${cantidad}</span>`;
+            nuevoGasto.innerHTML = `${nombre} <span class ="badge badge-primary badge-pill">$ ${cantidad}</span>`;
 
             //Boton para borrar el gasto
             const btnBorrar = document.createElement('button');
@@ -94,6 +94,7 @@ class UI{
             gastoListado.removeChild(gastoListado.firstChild);
         }
     }
+
 }
 //Instancia de UI
 const ui = new UI();
