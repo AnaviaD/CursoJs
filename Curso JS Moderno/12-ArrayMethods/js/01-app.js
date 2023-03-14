@@ -1,16 +1,16 @@
-const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio']
+// const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio']
 
-const carrito = [
-    {nombre: 'Monitor 27 pulgadas', precio: 500},
-    {nombre: 'Television', precio: 400},
-    {nombre: 'Tablet', precio: 200},
-    {nombre: 'Audifonos', precio: 300},
-    {nombre: 'Teclado', precio: 70},
-    {nombre: 'Celular', precio: 800},
-]
+// const carrito = [
+//     {nombre: 'Monitor 27 pulgadas', precio: 500},
+//     {nombre: 'Television', precio: 400},
+//     {nombre: 'Tablet', precio: 200},
+//     {nombre: 'Audifonos', precio: 300},
+//     {nombre: 'Teclado', precio: 70},
+//     {nombre: 'Celular', precio: 800},
+// ]
 
-const mesComp = 'Mayo'
-const prodComp = 'Tablet'
+// const mesComp = 'Mayo'
+// const prodComp = 'Tablet'
 
 //Comprobar si un valor existe en un arreglo
 // meses.forEach((mes) =>{
