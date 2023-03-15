@@ -1,3 +1,7 @@
+// // ==============================FindIndex==============================
+// // ==============================FindIndex==============================
+// // Find index nos sirve justamente para encontrar un index
+// // Pero si hace match con mas de un elemento, este nos regresa solo el primer elemento
 // const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio']
 
 // const carrito = [
@@ -9,26 +13,43 @@
 //     {nombre: 'Celular', precio: 800},
 // ]
 
-// // meses.forEach((mes, indx) =>{
-// //     if(mes == 'Abril')
-// //     {console.log('encontramos Abril')}
-// // })
+// const resultado = meses.findIndex((mes) =>{
+//     return mes == 'Abril'
+// })
+// console.log(resultado)
 
-// //Encontrar el indice de abril
-// // const indice = meses.findIndex((mes) =>{
-// //     return mes == 'Abril'
-// // })
-// // console.log(indice)
 
-// // //Encontrar el indice de un arreglo de objetos...
-// // const indice2 = carrito.findIndex((producto) =>{
-// //     return producto.precio == 400
-// // })
+// const resultado001 = carrito.findIndex((merca) => {
+//     return merca.nombre == 'Celular'
+// })
+// console.log(resultado001)
 
-// // console.log(indice2)
 
-// console.log(meses.findIndex((mes) =>{ return mes == 'Marzo'}))
+// const resultado002 = carrito.findIndex((merca) =>{
+//     return merca.precio == 70
+// })
+// console.log(resultado002)
 
-// console.log(carrito.findIndex((prod) =>{
-//     return prod.nombre == 'Celular'
-// }))
+// // // meses.forEach((mes, indx) =>{
+// // //     if(mes == 'Abril')
+// // //     {console.log('encontramos Abril')}
+// // // })
+
+// // //Encontrar el indice de abril
+// // // const indice = meses.findIndex((mes) =>{
+// // //     return mes == 'Abril'
+// // // })
+// // // console.log(indice)
+
+// // // //Encontrar el indice de un arreglo de objetos...
+// // // const indice2 = carrito.findIndex((producto) =>{
+// // //     return producto.precio == 400
+// // // })
+
+// // // console.log(indice2)
+
+// // console.log(meses.findIndex((mes) =>{ return mes == 'Marzo'}))
+
+// // console.log(carrito.findIndex((prod) =>{
+// //     return prod.nombre == 'Celular'
+// // }))
