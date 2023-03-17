@@ -17,6 +17,28 @@ class Citas{
 }
 
 class UI{
+    imprimirAlerta(mensaje, tipo){
+        //Crear el div
+        const divMensaje = document.createElement('div');
+        divMensaje.classList.add('text-center', 'alert', 'd-block', 'col-12');
+
+        if(tipo == 'error'){
+            divMensaje.classList.add('alert-danger');
+        }else{
+            divMensaje.classList.add('alert-success')
+        }
+
+        //Mensaje de error
+        divMensaje.textContent = mensaje;
+
+        //Insertar en HTML
+        document.querySelector('#contenido').insertBefore(divMensaje, document.querySelector('.agregar-cita'))
+
+        //Quitar del HTML
+        setTimeout(() =>{
+            divMensaje.remove();
+        }, 4000)
+    }
 
 }
 
@@ -57,10 +79,15 @@ function datosCita(e){
 function nuevaCita(e){
     e.preventDefault();
 
+    //Extraer la informacion del objeto de cita
     const {mascota, propietario, telefono, fecha, hora, sintomas} = citaObj;
 
+    //validar
     if (mascota == '' || propietario == '' || telefono == '' || fecha == '' || hora == '' || sintomas == '') {
+        ui.imprimirAlerta('Todos los campos son obligatorios', 'error')
         console.log('Todos los campos son obligatorios')
         return;
     }
+
+    //Creando nueva cita
 }
