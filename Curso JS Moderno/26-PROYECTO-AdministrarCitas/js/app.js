@@ -14,6 +14,12 @@ class Citas{
     constructor(){
         this.citas = []
     }
+
+    agregarCita(cita){
+        this.citas = [...this.citas, cita]
+
+        console.log(this.citas);
+    }
 }
 
 class UI{
@@ -71,7 +77,6 @@ const citaObj = {
 //Agrega datos al objeto principal de la cita
 function datosCita(e){
     citaObj[e.target.name] = e.target.value;
-    console.log(citaObj)
 }
 
 
@@ -89,5 +94,11 @@ function nuevaCita(e){
         return;
     }
 
+    //generar un id unico
+    citaObj.id = Date.now();
+
     //Creando nueva cita
+    //Para que en el arreglo de administrar Citas no se repita el registro
+    //Se le pasa una copia del objeto y no el objeto como tal
+    administrarCitas.agregarCita({...citaObj})
 }
