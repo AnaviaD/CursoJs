@@ -13,3 +13,18 @@
 //     {nombre: 'Celular', precio: 800},
 // ];
 
+
+// const resultado = meses.every((mes) =>{
+//     return mes.length > 1
+// })
+// console.log(resultado)
+
+// const resultado001 = carrito.every((merca) =>{
+//     return merca.precio >1
+// })
+// console.log(resultado001)
+
+// const resultado002 = carrito.every((merca) =>{
+//     return merca.nombre == 'Audifonos'
+// })
+// console.log(resultado002)

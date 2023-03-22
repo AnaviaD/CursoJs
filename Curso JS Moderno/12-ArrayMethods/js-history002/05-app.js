@@ -13,3 +13,32 @@
 //     {nombre: 'Teclado', precio: 70},
 //     {nombre: 'Celular', precio: 800},
 // ];
+
+// // con un foreach
+// let resultado = '';
+// carrito.forEach((merca) => {
+//     if (merca.nombre == 'Television') {
+//         resultado = merca
+//     }
+// })
+// console.log(resultado)
+
+// const restmes = meses.find((mes) =>{
+//     return mes = 'Mayo'
+// })
+// console.log(restmes)
+
+// const resultado001 = carrito.find((merca) =>{
+//     return merca.nombre == 'Television'
+// })
+// console.log(resultado001)
+
+// const resultado002 = carrito.find((merca) =>{
+//     return merca.nombre.includes('a')
+// })
+// console.log(resultado002)
+
+// const resultado003 = carrito.find((merca) =>{
+//     return merca.precio < 20
+// })
+// console.log(resultado003)
