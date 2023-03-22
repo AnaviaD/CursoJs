@@ -13,3 +13,27 @@
 //     {nombre: 'Celular', precio: 800},
 // ]
 
+// const resultado001 = meses.findIndex((mes) =>{
+//     return mes == 'Mayo'
+// })
+// console.log(resultado001)
+
+// const resultado002 = carrito.findIndex((prod) =>{
+//     return prod.nombre == 'Teclado'
+// })
+// console.log(resultado002)
+
+// const resultado003 = carrito.findIndex((prod) => {
+//     return prod.precio == 300
+// })
+// console.log(resultado003)
+
+// const resultado004 = carrito.findIndex((prod) => {
+//     return prod == {nombre: 'Celular', precio: 800}
+// })
+// console.log(resultado004)
+
+// const resultado005 = carrito.findIndex((prod) => {
+//     return prod.precio > 200
+// })
+// console.log(resultado005)

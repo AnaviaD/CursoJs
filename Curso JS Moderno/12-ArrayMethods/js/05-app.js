@@ -13,3 +13,23 @@
 //     {nombre: 'Teclado', precio: 70},
 //     {nombre: 'Celular', precio: 800},
 // ];
+
+// const resultado001 = meses.find((mes) =>{
+//     return mes =='Enero'
+// })
+// console.log(resultado001)
+
+// const resultado002 = meses.find((mes) =>{
+//     return mes.includes('u')
+// })
+// console.log(resultado002)
+
+// const resultado003 = carrito.find((merca) =>{
+//     return merca.nombre == 'Tablet'
+// })
+// console.log(resultado003)
+
+// const resultado004 = carrito.find((merca) =>{
+//     return merca.precio == 70
+// })
+// console.log(resultado004)

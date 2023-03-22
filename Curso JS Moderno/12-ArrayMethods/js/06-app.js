@@ -2,7 +2,7 @@
 // //=====================================Every=====================================
 // // Revisa que todos los miembros del array cumplan con la condcion
 // // a diferencia de some que con una condicion cumplida es suficiente
-// const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio']
+// const meses = ['Enero', 'Febrero', 'Marzo', 'Abrilo', 'Mayo', 'Junio', 'Julio']
 
 // const carrito = [
 //     {nombre: 'Monitor 27 pulgadas', precio: 500},
@@ -13,3 +13,22 @@
 //     {nombre: 'Celular', precio: 800},
 // ];
 
+// const resultado001 = meses.every((mes) =>{
+//     return mes.length > 3
+// })
+// console.log(resultado001)
+
+// const resultado002 = meses.every((mes) =>{
+//     return mes.includes('o')
+// })
+// console.log(resultado002)
+
+// const resultado003 = carrito.every((merca) => {
+//     return merca.length > 3
+// })
+// console.log(resultado003)
+
+// const resultado004 = carrito.every((merca) => {
+//     return merca.precio > 5
+// })
+// console.log(resultado004)

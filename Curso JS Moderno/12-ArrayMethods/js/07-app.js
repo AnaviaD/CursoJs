@@ -15,3 +15,9 @@
 //     {nombre: 'Teclado', precio: 70},
 //     {nombre: 'Celular', precio: 800},
 // ];
+
+// const resultado001 = meses.concat(meses2, meses3)
+// console.log(resultado001)
+
+// const resultado002 = [...meses, ...meses2, ...meses3]
+// console.log(resultado002)
