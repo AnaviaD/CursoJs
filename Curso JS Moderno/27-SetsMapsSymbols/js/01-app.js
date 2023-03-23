@@ -1,23 +1,26 @@
-const carrito = new Set()
-carrito.add('Camisa')
-carrito.add('Disco #1')
-carrito.add('Disco #2')
-carrito.add('Disco #3')
+// Set nos sirve para eliminar los duplicados
 
-console.log(carrito.has('Camisa'))
 
-console.log(carrito.size)
+// const carrito = new Set()
+// carrito.add('Camisa')
+// carrito.add('Disco #1')
+// carrito.add('Disco #2')
+// carrito.add('Disco #3')
 
-console.log(carrito)
+// console.log(carrito.has('Camisa'))
 
-carrito.delete('Camisa')
-console.log(carrito)
+// console.log(carrito.size)
 
-carrito.clear()
-console.log(carrito)
+// console.log(carrito)
 
-const numeros = [10, 20, 30, 40, 50, 10, 20, 30]
+// carrito.delete('Camisa')
+// console.log(carrito)
 
-const numNoDuplicados = new Set(numeros)
+// carrito.clear()
+// console.log(carrito)
 
-console.log(numNoDuplicados)
+// const numeros = [10, 20, 30, 40, 50, 10, 20, 30]
+
+// const numNoDuplicados = new Set(numeros)
+
+// console.log(numNoDuplicados)
