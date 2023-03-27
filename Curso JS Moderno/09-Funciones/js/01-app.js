@@ -1,15 +1,26 @@
-// Declaracion de Funcion (Funcion Declaracion)
-/*
-function sumar()
-{
-    console.log(2 + 2);
-}
+// // Declaracion de funciones
+// // Funcion comun, nada nuevo
 
-sumar()
+// function sumar(){
+//     console.log( 2 + 2)
+// }
 
-const sumar2 = function () {
-    console.log(3 + 3);
-}
+// sumar()
 
-sumar2();
-*/
+
+// const sumar2 = function(){
+//     console.log(3 + 3)
+// }
+
+// sumar2()
+
+// const ejemplo001 = function(){
+//     console.log('funcion desf const')
+// }
+
+// ejemplo001()
+
+// const nombreFuncion = function(){
+//     console.log('const nombreFuncion = function(){}')
+// }
+// nombreFuncion()

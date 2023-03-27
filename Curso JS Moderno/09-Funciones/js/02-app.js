@@ -1,11 +1,12 @@
-/*
-sumar()
-function sumar(){
-    console.log(2 + 2);
-}
+// // Declaracion de Funcion (Function Declaration)
+// sumar()
+// function sumar(){
+//     console.log('Function Declaration')
+// }
 
-sumar2()
-const sumar2 = function(){
-    console.log(3 + 3);
-}
-*/
+
+// // Expresion de funcion (Function Expression)
+// sumar2()
+// const sumar2 = function(){
+//     console.log('Function Expression')
+// }
