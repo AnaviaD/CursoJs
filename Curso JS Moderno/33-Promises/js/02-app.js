@@ -16,6 +16,10 @@ function iniciarCallbackHell(){
 
         setTimeout(() => {
             nuevoPais('Francia', mostrarPaises)
+
+            setTimeout(() => {
+                nuevoPais('Inglaterra', mostrarPaises)
+            }, 3000)
         },3000)
     }, 3000)
 }
