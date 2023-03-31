@@ -18,34 +18,25 @@ function crmDB(){
     }
 
     // Configuracion de base de datos
-    crmDB.onupgradeneeded = function(){
-        console.log('Esta funcion se ejecuta una sola vez')
+    crmDB.onupgradeneeded = function(e){
+        db = e.target.result
+
+        const objectStore = db.createObjectStore('crm', {
+            keyPath: 'crm',
+            autoIncrement: true
+        })
+
+        //Definir las columnas
+        // objectStore.createIndex('nombre', )
     }
 }
 
 
+// crmDB.onupgradeneeded = function(e){
+//     const db = e.target.result;
 
-// document.addEventListener('DOMContentLoaded', ()=>{
-//     crmDB();
-// })
-
-// function crmDB(){
-//     // Crear base de datos version 1.0
-//     let crmDB = window.indexedDB.open('crm', 1)
-
-//     // Si hay un error 
-//     crmDB.onerror = () =>{
-//         console.log('Hubo un error a la hora de crear la DB')
-//     }
-
-//     // Si se creo bien
-//     crmDB.onsuccess = function(){
-//         console.log('Base de datos creada')
-//     }
-
-//     // Configuracion de la base de datos
-//     crmDB.onupgradeneded = function(){
-//         console.log('Este metodo solo se ejecuta una vez')
-//     }
-
+//     const objectStore = db.createObjectStore('crm', {
+//         keyPath: 'crm',
+//         autoIncrement: true
+//     });
 // }
