@@ -140,20 +140,66 @@ $(document).ready(function(){
             }
         }
 
+        //Registro de direccion anterior
         jugador.dirAnt = jugador.dir;
+
+        //Dibujar cola
+        for (let i = 0; i < jugador.matrizCola.length; i++) {
+            let x = jugador.matrizCola[i][0]
+            let y = jugador.matrizCola[i][1]
+            matrix[x][y] = 1
+            
+        }
+
+        // Recorremos la matriz 
+
+        for (let i = 0; i < jugador.matrizCola.length; i++) {
+            if (i ==jugador.matrizCola.length -1) {
+
+                jugador.matrizCola[i][0] = jugador.xAnt;
+                jugador.matrizCola[i][1] = jugador.yAnt;
+            }else{
+
+                jugador.matrizCola[i][0] = jugador.matrizCola[i+1][0];
+                jugador.matrizCola[i][1] = jugador.matrizCola[i+1][1];
+            }
+            
+        }
+
 
         if(jugador.x > canvasx-1) {
             jugador.x = 0
-        }else if(jugador.x < 0){
+        }else if(jugador.x <= 0){
             jugador.x = canvasx - 1;
         }else if(jugador.y > canvasy-1) {
             jugador.y = 0
-        }else if(jugador.y < 0){
+        }else if(jugador.y <= 0){
             jugador.y = canvasy - 1
         }
 
         matrix[jugador.x][jugador.y] = 1
 
+        if (jugador.x == puntoComida.x && jugador.y == puntoComida.y) {
+            crearComida()
+
+            jugador.matrizCola.push([jugador.xAnt, jugador.yAnt])
+
+            jugador.puntos++
+            console.log("comiendo")
+            console.log(jugador.matrizCola)
+            console.log(jugador.puntos)
+        }
+
+        jugador.xAnt = jugador.x
+        jugador.yAnt = jugador.y
+
+    }
+
+
+    function renderizaPuntos(){
+        ctx.fillStyle = "white"
+        ctx.font = "20px Arial"
+        ctx.fillText("Score :" + jugador.puntos, 20, 30)
     }
 
 
@@ -162,11 +208,11 @@ $(document).ready(function(){
     }
 
     var jugador = {
-        x           : 0,
-        y           : 0,
+        x           : 1,
+        y           : 1,
         dir         : 0,
         dirAnt      : 0,
-        temporal    : 1,
+        tamano      : 1,
         puntos      : 0,
         val         : 20,
         tiempo      : 0,
@@ -185,6 +231,7 @@ $(document).ready(function(){
     // randomMatriz()
 
     clearMatrix()
+    crearComida()
     
     setInterval(() => {
         //Pone la matriz en 0
@@ -193,7 +240,7 @@ $(document).ready(function(){
         renderJugador()
 
         // Agrega valor de comida aleatorio
-        crearComida()
+        // crearComida()
         // Agrega 1 a esa posicion
         renderComida()
 
@@ -203,9 +250,11 @@ $(document).ready(function(){
 
         // renderiza el Grid
         dibujarGrid()  
+
+        renderizaPuntos()
         
         
-    }, 1000);
+    }, 100);
 
     document.addEventListener("keydown", function(e){
         if(e.keyCode == 37){            //izquierda
