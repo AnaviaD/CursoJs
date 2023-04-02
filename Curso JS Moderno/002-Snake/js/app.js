@@ -49,6 +49,32 @@ $(document).ready(function(){
         }
     }
 
+    function dibujarGrid(){
+        //Lineas verticales
+        for (let i = 0; i < canvas.width; i += 10) {
+            ctx.beginPath()
+            ctx.moveTo(i, 0)
+            ctx.lineTo(i, canvas.height)
+            ctx.strokeStyle = "white"
+            ctx.lineWidth = 0.1
+
+            ctx.stroke()
+            
+        }
+
+        //Lineas horizontales
+        for (let j = 0; j < canvas.height; j += 10) {
+            ctx.beginPath()
+            ctx.moveTo(0, j)
+            ctx.lineTo(canvas.width, j)
+            ctx.strokeStyle = "white"
+            ctx.lineWidth = 0.1
+
+            ctx.stroke()
+            
+        }
+    }
+
     function clearMatrix() {
         for(var i=0; i<canvasx; i++){
 
@@ -60,13 +86,55 @@ $(document).ready(function(){
         }
     } 
 
+    function crearComida(){
+        puntoComida.x = Math.floor(Math.random() * canvasx)
+        puntoComida.y = Math.floor(Math.random() * canvasy)
+    }
 
+    function renderComida(){
+        if (puntoComida.comida == 1) {
+            matrix[puntoComida.x][puntoComida.y] = 1
+        }
+    }
+
+    var game = {
+        level       : 1
+    }
+
+    var jugador = {
+        x           : 0,
+        y           : 0,
+        dir         : 0,
+        dirAnt      : 0,
+        temporal    : 1,
+        puntos      : 0,
+        val         : 20,
+        tiempo      : 0,
+        matrizCola  : [],
+        xAnt        : 0,
+        yAnt        : 0
+    }
+
+    var puntoComida = {
+        x       : 0,
+        y       : 0,
+        comida  : 1,
+    }
+
+
+    // randomMatriz()
+
+    clearMatrix()
     setInterval(() => {
-        // randomMatriz()
+        renderMatriz()
+        
+        dibujarGrid() 
 
-        // renderMatriz()
+        crearComida()
 
-    }, 500);
+        renderComida()
+
+    }, 1000);
 
 
 })
