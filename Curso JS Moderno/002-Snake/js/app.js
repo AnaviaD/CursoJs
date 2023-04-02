@@ -97,6 +97,66 @@ $(document).ready(function(){
         }
     }
 
+    function renderJugador(){
+
+        //izquierda     3
+        //derecha       1
+        //arriba        0
+        //abajo         2
+
+        // Movimiento a derecha
+        if(jugador.dir == 1) {
+            if(jugador.dirAnt == 3) {
+                jugador.dir = 3;
+            }else{
+                jugador.x++
+            }
+        }
+
+        // Movimiento a izq
+        if(jugador.dir == 3) {
+            if(jugador.dirAnt == 1) {
+                jugador.dir = 1;
+            }else{
+                jugador.x--
+            }
+        }
+
+        // Movimiento arriba
+        if(jugador.dir == 0) {
+            if(jugador.dirAnt == 2) {
+                jugador.dir = 2;
+            }else{
+                jugador.y++
+            }
+        }
+
+        //Movimiento abajo
+        if(jugador.dir == 2) {
+            if(jugador.dirAnt == 0) {
+                jugador.dir = 0;
+            }else{
+                jugador.y--
+            }
+        }
+
+        jugador.dirAnt = jugador.dir;
+
+        if(jugador.x > canvasx-1) {
+            jugador.x = 0
+        }else if(jugador.x < 0){
+            jugador.x = canvasx - 1;
+        }else if(jugador.y > canvasy-1) {
+            jugador.y = 0
+        }else if(jugador.y < 0){
+            jugador.y = canvasy - 1
+        }
+
+        matrix[jugador.x][jugador.y] = 1
+
+    }
+
+
     var game = {
         level       : 1
     }
@@ -125,16 +185,40 @@ $(document).ready(function(){
     // randomMatriz()
 
     clearMatrix()
+    
     setInterval(() => {
-        renderMatriz()
-        
-        dibujarGrid() 
+        //Pone la matriz en 0
+        clearMatrix()
 
+        renderJugador()
+
+        // Agrega valor de comida aleatorio
         crearComida()
-
+        // Agrega 1 a esa posicion
         renderComida()
 
+        // renderiza la capa matriz
+        renderMatriz()
+        
+
+        // renderiza el Grid
+        dibujarGrid()  
+        
+        
     }, 1000);
+
+    document.addEventListener("keydown", function(e){
+        if(e.keyCode == 37){            //izquierda
+            jugador.dir = 3
+        }else if(e.keyCode == 40){      //arriba
+            jugador.dir = 0
+        }else if(e.keyCode == 39){      //derecha
+            jugador.dir = 1
+        }else if(e.keyCode == 38){      //abajo
+            jugador.dir = 2
+        }
+
+    })
 
 
 })
