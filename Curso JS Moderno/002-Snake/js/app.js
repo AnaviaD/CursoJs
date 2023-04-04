@@ -17,6 +17,16 @@ $(document).ready(function(){
 
     var matrix = []
 
+    function clearMatrix(){
+        for (let i = 0; i < canvasx; i++) {
+            matrix[i] = []
+            
+            for (let j = 0; j < canvasy; j++) {
+                matrix[i][j] = 0
+            }
+        }
+    }
+
     function randomMatriz(){
         for (let i = 0; i < canvasx; i++) {
             matrix[i] = []
@@ -78,6 +88,74 @@ $(document).ready(function(){
         }
     }
 
+    function renderizadorJugador(){
+        //Arriba        0
+        //Abajo         2
+        //Izquierda     3
+        //Derecha       1
+        if (jugador.dir == 1) {
+            if (jugador.dirAnt == 3) {
+                jugador.dir = 3;
+            }else{
+                jugador.x++
+            }
+        }
+
+        if (jugador.dir == 3) {
+            if (jugador.dirAnt == 1) {
+                jugador.dir = 1;
+            }else{
+                jugador.x--
+            }
+        }
+
+        if (jugador.dir == 0) {
+            if (jugador.dirAnt == 2) {
+                jugador.dir = 2;
+            }else{
+                jugador.y++
+            }
+        }
+
+        if (jugador.dir == 2) {
+            if (jugador.dirAnt == 0) {
+                jugador.dir = 0;
+            }else{
+                jugador.y--
+            }
+        }
+
+        jugador.dirAnt = jugador.dir
+
+        if (jugador.x > canvasx -1) {
+
+            jugador.x = 0
+
+        }else if (jugador.x <= 0){
+
+            jugador.x = canvasx - 1
+
+        }else if(jugador.y > canvasy -1) {
+
+            jugador.y = 0
+
+        }else if(jugador.y <= 0){
+
+            jugador.y = canvasy - 1
+
+        }
+
+        matrix[jugador.x][jugador.y] = 1
+
+
+        if(jugador.x == puntoComida.x &&jugador.y == puntoComida.y){
+            console.log("comiendo")
+            crearComida()
+        }
+
+
+    }
+
     var game = {
         level:  1
     }
@@ -102,15 +180,7 @@ $(document).ready(function(){
         comida:     1
     }
 
-    function clearMatrix(){
-        for (let i = 0; i < canvasx; i++) {
-            matrix[i] = []
-            
-            for (let j = 0; j < canvasy; j++) {
-                matrix[i][j] = 0
-            }
-        }
-    }
+
 
     randomMatriz()
     crearComida()
@@ -118,29 +188,33 @@ $(document).ready(function(){
     
     setInterval(() => {
         
+        clearMatrix()
+        
+        
+        renderComida()
+        
+        renderizadorJugador()
+        
         renderMatriz()
         
         dibujarGrid()
-        
-        renderComida()
 
+    }, 100);
 
-    }, 500);
-
-    document.addEventListener('keydown', function(e){
-        console.log(e.keyCode)
+    document.addEventListener('keydown', function(e){        
+        // console.log(e.keyCode)
         if (e.keyCode == 37) {
-            //Izquierda
+            //Izquierda     3
             jugador.dir = 3;
         }else if (e.keyCode == 39) {
-            //Derecha
+            //Derecha       1
             jugador.dir = 1;
         }else if (e.keyCode == 38) {
-            //Arriba
-            jugador.dir = 0;
-        }else if (e.keyCode == 40) {
-            //Abajo
+            //Arriba        2
             jugador.dir = 2;
+        }else if (e.keyCode == 40) {
+            //Abajo         0
+            jugador.dir = 0;
         }
     })
 
