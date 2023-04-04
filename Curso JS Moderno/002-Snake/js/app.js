@@ -127,6 +127,29 @@ $(document).ready(function(){
 
         jugador.dirAnt = jugador.dir
 
+        // dibujar cola 
+
+        for (let i = 0; i < jugador.matrizCola.length; i++) {
+            let x = jugador.matrizCola[i][0];
+            let y = jugador.matrizCola[i][1]
+
+            matrix[x][y] = 1
+        }
+
+        //recorremos la matriz 
+
+        for (let i = 0; i < jugador.matrizCola.length; i++) {
+            if (i == jugador.matrizCola.length - 1){
+                jugador.matrizCola[i][0] = jugador.xAnt
+                jugador.matrizCola[i][1] = jugador.yAnt
+            }else {
+                jugador.matrizCola[i][0] = jugador.matrizCola[i + 1][0]
+                jugador.matrizCola[i][1] = jugador.matrizCola[i + 1][1]
+            }
+        }
+
+
+
         if (jugador.x > canvasx -1) {
 
             jugador.x = 0
@@ -151,9 +174,22 @@ $(document).ready(function(){
         if(jugador.x == puntoComida.x &&jugador.y == puntoComida.y){
             console.log("comiendo")
             crearComida()
+
+            jugador.matrizCola.push([jugador.xAnt, jugador.yAnt])
+            jugador.puntos++
         }
 
+        jugador.xAnt = jugador.x
+        jugador.yAnt = jugador.y
 
+
+    }
+
+    function renderizaPuntos(){
+        ctx.fillStyle = "white"
+        ctx.font = "20px Arial"
+
+        ctx.fillText("Score: " +jugador.puntos, 20, 30)
     }
 
     var game = {
@@ -198,6 +234,8 @@ $(document).ready(function(){
         renderMatriz()
         
         dibujarGrid()
+
+        renderizaPuntos()
 
     }, 100);
 
