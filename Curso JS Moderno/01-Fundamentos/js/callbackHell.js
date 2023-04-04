@@ -17,14 +17,15 @@ const empleados = [
 const salarios = [
     {
     id:         1,
-    nombre:     1000
+    salario:    1000
     },
     {
     id:         2,
-    nombre:     1500
+    salario:    1500
     }
 ]
 
+const id = 1
 
 //para que tome en cuenta el callback se tiene que poner como argumento
 const getEmpleado = (id, callback) =>{
@@ -37,17 +38,41 @@ const getEmpleado = (id, callback) =>{
     }
 }
 
+const getSalario = function(id, callback){
+    const salario = salarios.find( e => e.id == id)
+
+    if (salario) {
+        callback(null, salario)
+    }else{
+        callback(`Empleado con id ${id} no existe`)
+    }
+}
+
+
 //callback es la segunda parte de la funcion
 // function realizaAlgo(argumento, callback)
 // Cuando se llama esa funcion, esa funcion regresa a la llamada
-getEmpleado(1, (err, empleado) =>{
+getEmpleado(id, (err, empleado) =>{
     if (err) {
         console.log("Error!!!")
         return console.log(err)
     }
     console.log('Empleado existe!!!')
     console.log(empleado)
+
+
+    //Segundo callback
+    getSalario(id, (err, salario)=>{
+        if (err) {
+            console.log(`Error!!!!!`)
+            return console.log(err)
+        }
+        console.log(`El salario exite!!`)
+        console.log(salario)
+    })
 })
+
+console.log(' ')
 
 
 
