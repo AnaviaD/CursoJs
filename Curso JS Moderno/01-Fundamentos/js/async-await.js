@@ -58,10 +58,13 @@ const getSalario = (id) =>{
     return promesa
 }
 
-let nombre
-getEmpleado(id)
-        .then( empleado => {
-            nombre = empleado
-            return getSalario(id)
-        })
-        .then( salario => console.log(`El empleado ${nombre}, tiene un salario de ${salario}`))
+const getInfoUsuario = async () =>{
+    
+    const empleado = await getEmpleado(id)
+    const salario = await getSalario(id)
+
+    return `El salario del empleado ${empleado} es de ${salario}`
+}
+
+getInfoUsuario()
+    .then((msg) => {console.log(msg)})
