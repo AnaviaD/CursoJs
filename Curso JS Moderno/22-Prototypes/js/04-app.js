@@ -1,58 +1,44 @@
-// function Clientes(nombre, saldo){
-//     this.nombre = nombre;
-//     this.saldo = saldo;
+// function Cliente(nombre, saldo){
+//     this.nombre = nombre
+//     this.saldo = saldo
 // }
 
-// Clientes.prototype.tipoCliente = function(){
+// Cliente.prototype.tipoCliente = function(){
 //     let tipo;
 
 //     if (this.saldo > 10000) {
 //         tipo = 'Gold'
-//     }else if(this.saldo > 5000){
+//     }else if (this.saldo > 5000) {
 //         tipo = 'Platinum'
 //     }else{
 //         tipo = 'Normal'
 //     }
-    
-//     return tipo;
+//     return tipo
 // }
 
-// Clientes.prototype.nombreClietes = function(){
-//     return `Nombre: ${this.nombre}, Saldo: ${this.saldo}, Tipo Cliente: ${this.tipoCliente()}`
+// Cliente.prototype.nombreCliente = function(){
+//     return `Nombre: ${this.nombre}, Saldo: ${this.saldo} Tipo Cliente: ${this.tipoCliente()}`
 // }
 
-
-// Clientes.prototype.retirarSaldo = function(retira){
+// Cliente.prototype.retirarSaldo = function(retira){
 //     this.saldo -= retira
 // }
 
-// //Instarciar objetos
-// const pedro = new Clientes('Pedro', 6000)
-// console.log(pedro.tipoCliente())
-// console.log(pedro.nombreClietes())
-// console.log(pedro)
-// pedro.retirarSaldo(50)
-// console.log(pedro)
-
 // function Persona(nombre, saldo, telefono){
-//     //heredamos el constructor de Clientes
-//     Clientes.call(this, nombre, saldo)
-//     this.telefono = telefono;
+//     Cliente.call(this, nombre, saldo)
+//     this.telefono = telefono
+//     this.apellido = 'dic'
 // }
+
+// Persona.prototype = Object.create( Cliente.prototype )
+// Persona.prototype.constructor = Cliente
+
+// const juan = new Persona('Juan', 5000, 1020304050)
+// console.log(juan)
+// console.log(juan.nombreCliente())
 
 // Persona.prototype.mostrarTelefono = function(){
 //     return `El telefono de esta persona es ${this.telefono}`
 // }
 
-// //Para heredar las funciones de Clientes
-// Persona.prototype = Object.create( Clientes.prototype )
-
-// Persona.prototype.constructor = Clientes;
-
-// const juan = new Persona('Juan', 5000, 10920192)
-
-
-// console.log(juan)
-// console.log(juan.nombreClietes())
-
-// Persona.log(juan.mostrarTelefono())
+// console.log(juan.mostrarTelefono())
