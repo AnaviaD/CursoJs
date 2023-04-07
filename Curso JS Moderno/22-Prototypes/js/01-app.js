@@ -1,16 +1,16 @@
 // const cliente = {
 //     nombre: 'Juan',
-//     saldo: 500
+//     saldo:  500
 // }
 
-// console.log(cliente);
+// console.log(cliente)
 // console.log(typeof cliente)
 
-// function Clientes(nombre, saldo){
-//     this.nombre = nombre;
-//     this.saldo = saldo;
+// function Cliente(nombre, saldo){
+//     this.nombre = nombre
+//     this.saldo = saldo
 // }
 
-// const juan = new Clientes('Juan', 500)
+// const juan = new Cliente('juan', 300)
 // console.log(juan)
 // console.log(typeof juan)
