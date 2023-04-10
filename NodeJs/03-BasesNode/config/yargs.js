@@ -11,6 +11,12 @@ const argv = require('yargs')
         default: 'false',
         describe: 'Imprime lo que hay en console log'
     })
+    .option('h',{
+        alias: 'hasta',
+        type: 'number',
+        default: 10,
+        describe: 'Referencia limite de loop'
+    })
     .check((argv, options) =>{
         if (isNaN(argv.b)) {
             throw 'La base tiene que ser un numero'
