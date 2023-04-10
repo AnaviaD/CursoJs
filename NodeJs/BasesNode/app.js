@@ -1,11 +1,17 @@
+const { crearArchivo } = require('./helpers/multiplicar');
+
 console.clear()
-console.log('=======================================')
-console.log('========== Tabla del 5 ================')
-console.log('======================================= \n')
+
+// let base = 2
+
+const [, , arg3 = 'base=5'] = process.argv
+const [ , base] = arg3.split('=')
+// console.log(base)
 
 
-let base = 5
-
-for (let i = 0; i <= 10; i++) {
-    console.log(`${base} x ${i} = ${base*i}`)
-}
+crearArchivo(base)
+    .then((result) => {
+        console.log(`Ruta creada en ${result}`)
+    }).catch((err) => {
+        console.log(`${err}`)
+    });
