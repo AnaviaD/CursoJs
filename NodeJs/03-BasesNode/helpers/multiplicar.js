@@ -2,20 +2,25 @@ const fs = require('fs');
 const { resolve } = require('path');
 
 
-const crearArchivo = (base = 5) =>{
+const crearArchivo = (base = 5, listar = false) =>{
     
-    console.log('=======================================')
-    console.log(`========== Tabla del ${base} ================`)
-    console.log('======================================= \n')
-
+    
     const promesa = new Promise((resolve, reject) => {
-    
+        
         let salida = ''
         const path = `./tabla-${base}.txt`
-    
+        
         for (let i = 0; i <= 10; i++) {
             salida += `${base} x ${i} = ${base*i} \n`
         }
+        
+        if (listar == true) {
+            console.log('=======================================')
+            console.log(`========== Tabla del ${base} ================`)
+            console.log('======================================= \n')
+            console.log(salida)
+        }
+
         
         fs.writeFileSync(`tabla-${base}.txt`, salida)
 

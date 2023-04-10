@@ -1,15 +1,12 @@
 const { crearArchivo } = require('./helpers/multiplicar');
+const argv = require('./config/yargs');
 
 console.clear()
 
-// let base = 2
-
-const [, , arg3 = 'base=5'] = process.argv
-const [ , base] = arg3.split('=')
-// console.log(base)
+console.log(argv)
 
 
-crearArchivo(base)
+crearArchivo(argv.b, argv.l)
     .then((result) => {
         console.log(`Ruta creada en ${result}`)
     }).catch((err) => {
