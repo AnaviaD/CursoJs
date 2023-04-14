@@ -6,6 +6,7 @@
         conectarDB()
 
         formulario.addEventListener('submit', validarCliente)
+
     })
 
     function conectarDB(){
@@ -33,11 +34,73 @@
             imprimirAlerta(' Todos los campos son obligatorios', 'error')
             return;
         }
+
+        // Crear un objeto con la informacion
+
+        const cliente = {
+            nombre: nombre,
+            email: email,
+            telefono: telefono,
+            empresa: empresa,
+        }
+        cliente.id = Date.now()
+        
+        crearNuevoCliente(cliente)
+    }
+
+    function crearNuevoCliente(cliente){
+
+        const transaction = DB.transaction(['crm'], 'readwrite')
+
+        const objectStore = transaction.objectStore('crm')
+
+        objectStore.add(cliente)
+
+        transaction.onerror = function(){
+            console.log('Hubo un error')
+
+            imprimirAlerta('El nombre o email ya estan registrados', 'error')
+
+        }
+
+        transaction.oncomplete = function(){
+            console.log('Cliente Agregado')
+
+            imprimirAlerta('El cliente se agrego correctamente')
+
+            setTimeout(() => {
+                window.location.href = 'index.html'
+            }, 3000);
+        }
+
+
     }
 
     function imprimirAlerta(mensaje, tipo){
-        // crear alerta
-        const divMensaje = document.createElement('div')
-        divMensaje.classList.add('px-4', 'py-3', 'rounded', 'max-w-lg', 'max-auto', 'mt-6', 'text-center')
+
+        const alerta = document.querySelector('.alerta')
+
+        if (!alerta) {
+            
+            // crear alerta
+            const divMensaje = document.createElement('div')
+            divMensaje.classList.add('px-4', 'py-3', 'rounded', 'max-w-lg', 'max-auto', 'mt-6', 'text-center', 'border', 'alerta')
+    
+            if(tipo == 'error')
+            {
+                divMensaje.classList.add('bg-red-100', 'dorder-red-400', 'text-red-700')
+            }else{
+                divMensaje.classList.add('bg-green-100', 'border-green-400', 'text-green-700')
+            }
+    
+            divMensaje.textContent = mensaje;
+    
+            formulario.appendChild(divMensaje);
+    
+            setTimeout(() => {
+                divMensaje.remove()
+            }, 2000);
+
+        }
     }
 })()
