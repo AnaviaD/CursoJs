@@ -30,7 +30,7 @@ class Tareas{
     cargarTareasFromArray(tareas = []) {
 
         tareas.forEach(tarea =>{
-            
+
             this._listado[tarea.id] = tarea
 
         })
@@ -44,6 +44,47 @@ class Tareas{
         
     }
 
+    listadoCompleto(){
+
+        this.listadoArr.forEach( (tarea, i) => {
+
+            const idx = ` ${i + 1}`.green
+            const { desc, completadoEn } = tarea
+            const extado = ((completadoEn == null ) ? 'Pendiente'.red : 'Completada'.blue)
+
+            console.log(` ${idx}.- ${desc}   :: ${extado} `)
+
+        })
+
+    }
+
+    listadoPendientesCompletadas(completadas = true){
+
+        let contador = 0
+        this.listadoArr.forEach( (tarea) => {
+
+            const { desc, completadoEn } = tarea
+            const extado = ((completadoEn == null ) ? 'Pendiente'.red : 'Completada'.blue)
+
+            if (completadas) {
+                if ( completadoEn != null ) {
+                    
+                    contador += 1;
+                    console.log(` ${contador.toString().green}.- ${desc}   :: ${extado} `)
+                
+                }
+            }else{
+                if ( completadoEn == null ) {
+                    
+                    contador += 1;
+                    console.log(` ${contador.toString().green}.- ${desc}   :: ${extado} `)
+                
+                }
+            }
+
+        })
+
+    }
 }
 
 
