@@ -14,7 +14,7 @@ const leerDB = () =>{
 
     const info = fs.readFileSync(archivo, {encoding: 'utf8'});
     const data = JSON.parse( info )
-    console.log(data);
+    return data
 }
 
 module.exports = {
