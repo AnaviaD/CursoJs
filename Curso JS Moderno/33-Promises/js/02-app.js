@@ -1,27 +1,27 @@
-// const paises = []
+// const paises = [];
 
 // function nuevoPais(pais, callback){
 //     paises.push(pais)
-//     console.log(`Agregado: ${pais}`)
-//     callback()
+//     console.log(`Agregando ${pais}`);
+//     callback();
 // }
 
 // function mostrarPaises(){
-//     console.log(paises)
+//     console.log(paises);
 // }
 
-// function iniciarCallbackHell(){
+// function indicarCallbackHell(){
 //     setTimeout(() => {
-//         nuevoPais('Alemania', mostrarPaises)
+//         nuevoPais('Alemania', mostrarPaises);
 
 //         setTimeout(() => {
-//             nuevoPais('Francia', mostrarPaises)
+//             nuevoPais('Francia', mostrarPaises);
 
 //             setTimeout(() => {
-//                 nuevoPais('Inglaterra', mostrarPaises)
-//             }, 3000)
-//         },3000)
-//     }, 3000)
+//                 nuevoPais('Inglaterra', mostrarPaises);
+//             }, 2000);
+//         }, 2000);
+//     }, 3000);
 // }
 
-// iniciarCallbackHell()
+// indicarCallbackHell()
