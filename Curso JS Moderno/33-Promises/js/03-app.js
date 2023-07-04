@@ -1,30 +1,20 @@
 // const aplicarDescuento = new Promise((resolve, reject) =>{
-
-//     const descuento = true;
+//     const descuento = true
 
 //     if (descuento) {
-//         resolve('Se pudo aplicar el descuento ')
+//         console.log('Cayo en resolve')
+//         resolve('Descuento Aplicado')
 //     }else{
-//         reject('No se pudo aplicar el descuento')
+//         console.log('Cayo en reject')
+//         reject('El promise no se aplico')
 //     }
 // })
 
 
 // aplicarDescuento
-// .then( resultado =>{
-//     mostrarResultado(resultado)
-// }).catch(error =>{
+// .then(resultado =>{
+//     console.log(resultado)
+// })
+// .reject(error =>{
 //     console.log(error)
 // })
-
-// function mostrarResultado(mensaje){
-//     console.log(`Paso por la funcion`)
-//     console.log(mensaje)
-// }
-
-
-// //console.log(aplicarDescuento)
-
-// // Hay 3 valores posibles
-// // fulfilled - El promise se cumplio
-// // rejected - El promise no se cumplio 
