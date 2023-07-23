@@ -4,7 +4,7 @@ require('colors');
 
 const mostrarMenu = ()=>{
 
-    return new Promise(resolve=>{
+    return new Promise((resolve, reject)=>{
 
         console.clear();
         console.log('====================================='.green)
@@ -37,19 +37,22 @@ const mostrarMenu = ()=>{
 
 const pausa = ()=>{
 
-    return new Promise(resolve =>{
+    const promesa = new Promise((resolve, reject) =>{
         
         const readline = require('readline').createInterface({
             input: process.stdin,
             output: process.stdout
         });
     
-        readline.question(`\nPresione ${'ENTER.green \n'}`, (opt) =>{
+        readline.question(`\nPresione ${'ENTER'.green} \n`, (opt) =>{
             readline.close();
             resolve();
         })
 
     })
+
+    return promesa
+
 }
 
 
