@@ -38,6 +38,14 @@ const preguntas = [
     }
 ]
 
+const textoEnt = [
+    {
+        type:       'input',
+        name:       'pausa',
+        message:    'Presiona ENTER'
+    }
+]
+
 const inquirermenu = async () =>{
     
     console.clear();
@@ -54,9 +62,25 @@ const inquirermenu = async () =>{
 
 }
 
+const inqPausa = async() =>{
+
+    console.log()
+
+    console.log('====================================='.green)
+    console.log('======== Presione Enter ============='.green)
+    console.log('=====================================\n'.green)
+
+    const prompt = inquirer.createPromptModule()
+
+    const { pausa } = await prompt(textoEnt)
+
+    return pausa
+}
+
 
 
 
 module.exports = {
-    inquirermenu: inquirermenu
+    inquirermenu: inquirermenu,
+    inqPausa: inqPausa
 }
