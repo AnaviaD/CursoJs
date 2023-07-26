@@ -31,7 +31,7 @@ const main = async() =>{
                 
             case '2':
                 //listar opcion
-                console.log(tareas.listadoArr);
+                tareas.listadoCompleto()
             break
         
             default:
