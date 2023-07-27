@@ -12,12 +12,13 @@ const main = async() => {
     do {
 
         opt = await inquirermenu('Ciudad: ')
-
+        
         switch (opt) {
             case 1:
-
+                
                 //Mostrar mensaje
                 const lugar = await leerInput('Ciudad: ')
+                await busquedas.ciudad(lugar)
                 // console.log(lugar)
 
                 //Buscar los lugares
