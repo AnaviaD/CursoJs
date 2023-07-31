@@ -48,6 +48,30 @@ class Busqueda {
         return [];// retornar los lugares
     }
 
+    async climaLugar(lat, lon){
+
+        try {
+            const instance = axios.create({
+                baseURL: `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.OPENWEATHER_KEY}&units=metric&lang=es`
+            })
+
+            const resp = await instance.get();
+            console.log(resp)
+            //resp.data
+            //return{
+                /*
+                desc:       '',
+                min:        '',
+                max:        '',
+                temp:       '',
+                */
+            //}
+        } catch (error) {
+            console.log(error)
+        }
+        return resp
+    }
+
 
 }
 
