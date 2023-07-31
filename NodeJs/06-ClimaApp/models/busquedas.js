@@ -26,12 +26,20 @@ class Busqueda {
                 params: this.paramsMapbox
             });
 
-            console.log(instance)
+            // console.log(instance)
             const resp = await instance.get();
 
+            return resp.data.features.map( lugar =>({
+                id:         lugar.id,
+                nombre:     lugar.place_name,
+                lng:        lugar.center[0],
+                lat:        lugar.center[1]
+
+            }))
+
             // peticion http
-            console.log('Ciudad', lugar);
-            console.log(resp.data)
+            // console.log('Ciudad', lugar);
+            // console.log(resp.data)
             // console.log(resp)
         } catch (error) {
             console.log(error)            
