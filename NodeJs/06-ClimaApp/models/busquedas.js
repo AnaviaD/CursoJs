@@ -16,6 +16,16 @@ class Busqueda {
         }
     }
 
+    get paramsWeather()
+    {
+        return {
+            'appid':    process.env.OPENWEATHER_KEY,
+            'lang':     'es',
+            'units':    'metrics'
+
+        }
+    }
+
     async ciudad( lugar = ''){
         
         try {
@@ -52,20 +62,22 @@ class Busqueda {
 
         try {
             const instance = axios.create({
-                baseURL: `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.OPENWEATHER_KEY}&units=metric&lang=es`
+                baseURL: `https://api.openweathermap.org/data/2.5/weather?`,
+                params: {   ...this.paramsWeather, lat, lon }
             })
 
             const resp = await instance.get();
-            console.log(resp)
-            //resp.data
-            //return{
-                /*
-                desc:       '',
-                min:        '',
-                max:        '',
-                temp:       '',
-                */
-            //}
+            // console.log(resp.data)
+            const { weather, main } = resp.data
+
+
+            return{
+                desc:       weather[0].description,
+                min:        main.temp_min,
+                max:        main.temp_max,
+                temp:       main.temp,
+            }
+
         } catch (error) {
             console.log(error)
         }

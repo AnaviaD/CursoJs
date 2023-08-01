@@ -32,17 +32,18 @@ const main = async() => {
 
                 // Clima
                 const clima = await busquedas.climaLugar(lugarSel.lat, lugarSel.lng)
-                // const clima = await busquedas.climaLugar()
 
                 //Mostrar resultados
+                console.clear()
                 console.log('\n Informacion de la ciudad \n '.green)
-                console.log('Ciudad:', lugarSel.nombre);
-                console.log('Lat:', lugarSel.lat);
-                console.log('Lng:', lugarSel.lng);
-                console.log('Temperatura:', );
-                console.log('Minima:', );
-                console.log('Maxima:', );
-                console.log('Como esta el clima:', )
+                console.log('Ciudad             :', lugarSel.nombre);
+                console.log('Lat                :', lugarSel.lat);
+                console.log('Lng                :', lugarSel.lng);
+                console.log('Temperatura        :', clima.temp);
+                console.log('Minima             :', clima.min);
+                console.log('Maxima             :', clima.max);
+                console.log('Como esta el clima :', clima.desc)
+
             break;
         
             default:
