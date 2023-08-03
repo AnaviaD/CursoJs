@@ -1,9 +1,11 @@
 const express = require('express')
-const app = express()
+const hbs = require('hbs')
 
+const app = express()
 const port = 8080;
 
 
+hbs.registerPartials(__dirname + '/views/partials', function (err) {});
 // TODO: require('hbs');
 app.set('view engine', 'hbs');
 
@@ -12,7 +14,10 @@ app.set('view engine', 'hbs');
 app.use(    express.static('public')    );
 
 app.get('/', (req, res) =>{
-    res.render('home')
+    res.render('home', {
+        nombre: 'Alberto NavBar',
+        titulo: 'Curso de Node'
+    })
 })
 
 app.get('/generic', (req, res) =>{
