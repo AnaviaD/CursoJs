@@ -10,8 +10,10 @@ const datosG = {
     titulo: 'Curso de Node'
 }
 
-
 hbs.registerPartials(__dirname + '/views/partials', function (err) {});
+
+
+
 // TODO: require('hbs');
 app.set('view engine', 'hbs');
 
