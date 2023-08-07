@@ -8,12 +8,18 @@ const usuariosGet = (req, res = response) => {
 }
 
 const usuariosPost = (req, res = response) => {
+    const body = req.body;
+    
     res.json({
-        msg: 'post API - controller'
+        msg: 'post API - controller',
+        body
+        
     });
 }
 
 const usuariosPut = (req, res = response) => {
+
+
     res.json({
         msg: 'put API - controller'
     });
