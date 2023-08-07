@@ -9,25 +9,25 @@ const usuariosGet = (req, res = response) => {
 
 const usuariosPost = (req, res = response) => {
     res.json({
-        msg: 'get API - controller'
+        msg: 'post API - controller'
     });
 }
 
 const usuariosPut = (req, res = response) => {
     res.json({
-        msg: 'get API - controller'
+        msg: 'put API - controller'
     });
 }
 
 const usuariosPatch = (req, res = response) => {
     res.json({
-        msg: 'get API - controller'
+        msg: 'patch API - controller'
     });
 }
 
 const usuariosDelete = (req, res = response) => {
     res.json({
-        msg: 'get API - controller'
+        msg: 'delete API - controller'
     });
 }
 
