@@ -1,6 +1,6 @@
 const { response, request } = require('express')
 const Usuario = require('../models/usuario')
-const bcryptjs = require('bcryptjs')
+const bcryptjs = require('bcryptjs');
 
 const usuariosGet = (req = request, res = response) => {
 
