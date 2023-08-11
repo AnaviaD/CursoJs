@@ -28,7 +28,7 @@ const usuariosPost = async (req, res = response) => {
     // Guardar en BD
     await usuario.save();
 
-    
+    //Respuesta en json
     res.json({
         usuario
         
@@ -48,6 +48,7 @@ const usuariosPut = async(req, res = response) => {
 
     const usr = await usuario.findByIdAndUpdate( id, resto )
 
+    //Respuesta en json
     res.json({
         msg: 'put API - controller',
         id
