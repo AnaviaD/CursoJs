@@ -16,6 +16,7 @@ const usuariosGet = async(req = request, res = response) => {
 
     //Coleccion de promesas
     const [ total, usuarios ] = await Promise.all([
+        
         usuario.countDocuments( query ),
         usuario.find( query )
             .skip( Number(desde) )
