@@ -7,30 +7,43 @@ const salt = bcryptjs.genSaltSync();
 
 
 
-const usuariosGet = (req = request, res = response) => {
+const usuariosGet = async(req = request, res = response) => {
 
-    const query = req.query;
+    // const query = req.query;
+    const { limite = 5, desde = 0 } = req.query;
+    const query = { estado: true }
+
+
+    //Coleccion de promesas
+    const [ total, usuarios ] = await Promise.all([
+        usuario.countDocuments( query ),
+        usuario.find( query )
+            .skip( Number(desde) )
+            .limit( Number(limite) )
+
+    ])
+
 
     res.json({
-        msg: 'get API - controller',
-        query
+        total,
+        usuarios
     });
 }
 
 const usuariosPost = async (req, res = response) => {
 
     const { nombre, correo, password, rol } = req.body;
-    const usuario = new Usuario({ nombre, correo, password, rol});
+    const usr = new usuario({ nombre, correo, password, rol});
 
     // Encriptar la contraseña 
-    usuario.password = bcryptjs.hashSync(password, salt);
+    usr.password = bcryptjs.hashSync(password, salt);
 
     // Guardar en BD
-    await usuario.save();
+    await usr.save();
 
     //Respuesta en json
     res.json({
-        usuario
+        usr
         
     });
 }
@@ -38,7 +51,7 @@ const usuariosPost = async (req, res = response) => {
 const usuariosPut = async(req, res = response) => {
 
     const { id } = req.params;
-    const { password, google, ...resto } = req.body;
+    const { _id, password, google, correo, ...resto } = req.body;
 
     //TODO validar contra base de datos
     if ( password ) {
